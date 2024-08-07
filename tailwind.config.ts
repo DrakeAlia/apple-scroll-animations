@@ -23,7 +23,6 @@ const config = {
         backgroundContrast: "#111",
         textBlack: "#1d1d1f",
         white: "#fff",
-
         // border: "hsl(var(--border))",
         // input: "hsl(var(--input))",
         // ring: "hsl(var(--ring))",
@@ -57,6 +56,35 @@ const config = {
         //   DEFAULT: "hsl(var(--card))",
         //   foreground: "hsl(var(--card-foreground))",
         // },
+      },
+      fontFamily: {
+        sans: [
+          "SF Pro Display",
+          "Helvetica Neue",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
+      },
+      fontSize: {
+        // 12px
+        xs: "0.75rem",
+        // 14px
+        sm: "0.875rem",
+        // 17px
+        base: "1.0625rem",
+        // 19px
+        lg: "1.1875rem",
+        // 21px
+        xl: "1.3125rem",
+        // 24px
+        "2xl": "1.5rem",
+        // 28px
+        "3xl": "1.75rem",
+        // 40px
+        "4xl": "2.5rem",
+        // 72px
+        "5xl": "4.5rem",
       },
       borderRadius: {
         lg: "var(--radius)",
