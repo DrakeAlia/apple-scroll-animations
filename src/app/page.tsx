@@ -1,9 +1,15 @@
-
+import Header from "../components/header";
 
 export default function Home() {
   return (
-    <div>
-      Hey
-    </div>
+    <>
+      <Header />
+      <main>
+        <div>Hero Component</div>
+        <div>ups</div>
+        <div>3 cols layout</div>
+        <div>Carousel with posters</div>
+      </main>
+    </>
   );
 }
