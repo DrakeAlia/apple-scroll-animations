@@ -74,7 +74,7 @@ const config = {
         // 17px
         base: "1.0625rem",
         // 19px
-        lg: "1.1875rem",
+        lg: ["1.1875rem", "1.21"],
         // 21px
         xl: "1.3125rem",
         // 24px
@@ -84,7 +84,7 @@ const config = {
         // 40px
         "4xl": "2.5rem",
         // 72px
-        "5xl": "4.5rem",
+        "5xl": ["4.5rem", "1.05"],
       },
       borderRadius: {
         lg: "var(--radius)",
