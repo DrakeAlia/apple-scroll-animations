@@ -1,4 +1,5 @@
 "use client";
+
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -12,14 +13,15 @@ export const Button = ({ children, size = "medium", className }: Props) => {
   const sizeClassNames = {
     small: "text-xs px-2 py-1",
     medium: "text-sm px-5 py-3",
-    large: "text-lg px-8 py-4",
+    large: "text-base px-8 py-4",
   };
 
   return (
     <button
       className={twMerge(
-        "text-textBlack bg-white rounded-full",
-        sizeClassNames[size]
+        "text-textBlack rounded-full bg-white",
+        sizeClassNames[size],
+        className
       )}
     >
       {children}

@@ -5,13 +5,13 @@ import { Button } from "@/components/button";
 export const Header = () => {
   return (
     <>
-      <header className="bg-backgroundContrast text-white">
+      <header className="bg-backgroundContrast relative z-20 text-white">
         <Container className="flex min-h-[--header-row-height] items-center">
           <a
             href="/"
             className="-ml-6 flex h-[--header-row-height] items-center px-6 text-xl"
           >
-            🍏 <span className="sr-only">Back to homepage</span>
+             <span className="sr-only">Back to homepage</span>
           </a>
         </Container>
       </header>
