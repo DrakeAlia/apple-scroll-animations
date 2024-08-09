@@ -5,9 +5,10 @@ import { twMerge } from "tailwind-merge";
 type Props = {
   children: React.ReactNode;
   size?: "small" | "medium" | "large";
+  className?: string;
 };
 
-export const Button = ({ children, size = "medium" }: Props) => {
+export const Button = ({ children, size = "medium", className }: Props) => {
   const sizeClassNames = {
     small: "text-xs px-2 py-1",
     medium: "text-sm px-5 py-3",
