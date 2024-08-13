@@ -14,9 +14,9 @@ export default function Home() {
           <Hero />
           <Usps />
         </div>
-        <div>
+        {/* <div>
           <Container>3 cols layout</Container>
-        </div>
+        </div> */}
         <div>
           <Container>Carousel with posters</Container>
         </div>
