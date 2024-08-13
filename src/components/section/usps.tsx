@@ -25,3 +25,5 @@ export const Usps = () => {
     </Container>
   );
 };
+
+export default Usps;
