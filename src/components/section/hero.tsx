@@ -22,7 +22,6 @@ export const Hero = () => {
         ref={videoContainerRef}
         className="absolute -top-[--header-height] left-0 h-[200vh] w-full "
       >
-        {/* <img src="/images/napoleon.png" alt="Napoleon image" /> */}
         <Image
           src="/images/napoleon.png"
           alt="Napoleon image"
