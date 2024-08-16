@@ -1,10 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import React, { useMemo, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useMemo, useRef, useState } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 import { Movie, movies, randomMoviesSet1, randomMoviesSet2 } from "@/movies";
 import { useWindowSize } from "react-use";
+import Button from "../button";
 
 export const VideoCarousel = () => {
   const { width, height } = useWindowSize();
@@ -37,8 +43,20 @@ export const VideoCarousel = () => {
     [20, 0]
   );
 
+  const [carouselVariant, setCarouselVariant] = useState<"inactive" | "active">(
+    "inactive"
+  );
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (progress >= 0.67) {
+      setCarouselVariant("active");
+    } else {
+      setCarouselVariant("inactive");
+    }
+  });
+
   return (
-    <div className="bg-background pb-8">
+    <motion.div animate={carouselVariant} className="bg-background pb-16">
       <div
         ref={carouselWrapperRef}
         className="mt-[-100vh] h-[300vh] overflow-clip"
@@ -68,10 +86,20 @@ export const VideoCarousel = () => {
                 height={1080}
                 className="h-full w-full object-cover"
               />
+              <motion.div
+                variants={{
+                  active: { opacity: 1 },
+                  inactive: { opacity: 0 },
+                }}
+                className="absolute bottom-0 left-0 flex flex-col md:flex-row w-full items-center gap-4 md:gap-0 md:justify-between text-white text-lg p-5"
+              >
+                <p>Best video title ever</p>
+                <Button>Watch now</Button>
+              </motion.div>
             </motion.div>
             <motion.div
               style={{ scale: postersOpacity, x: posterTranslateXRight }}
-              className="aspect-video w-[60vw] shrink-0 overflow-clip rounded-2xl"
+              className="aspect-[9/16] md:aspect-video w-[300px] md:w-[60vw] shrink-0 overflow-clip rounded-2xl"
             >
               <Image
                 src={movies[2].poster}
@@ -85,13 +113,20 @@ export const VideoCarousel = () => {
         </div>
       </div>
 
-      <div className="space-y-3">
+      <motion.div
+        variants={{
+          active: { opacity: 1, y: 0 },
+          inactive: { opacity: 0, y: 20 },
+        }}
+        transition={{ duration: 0.4 }}
+        className="-mt-[calc(100vh-(300px*(9/16)))/2)] md:-mt-[calc((100vh-(60vw*(9/16)))/2)] pt-4 space-y-3"
+      >
         <SmallVideoCarousel movies={randomMoviesSet1} />
-        <div className="[--duration:74s] [--carousel-offset:-32px]">
+        <div className="[--carousel-offset:-32px] [--duration:74s]">
           <SmallVideoCarousel movies={randomMoviesSet2} />
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -101,7 +136,7 @@ const SmallVideoCarousel = ({ movies }: { movies: Movie[] }) => {
       <div className="animate-carousel-move relative flex gap-3 left-[var(--carousel-offset, 0px)]">
         {movies.map((movie, index) => (
           <div
-            className="aspect-video w-[23vw] shrink-0"
+            className="aspect-video w-[40vw] md:w-[23vw] shrink-0"
             key={`${movie.name} -${index}`}
           >
             <Image

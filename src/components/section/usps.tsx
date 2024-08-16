@@ -6,7 +6,7 @@ import { FadeIn } from "../fade-in";
 
 export const Usps = () => {
   return (
-    <Container className="relative z-10 max-w-[692px] space-y-12 py-36 text-4xl font-bold text-white">
+    <Container className="relative z-10 max-w-[692px] space-y-12 py-36 text-3xl md:text-4xl font-bold text-white">
       <FadeIn>
         <p>New Apple Originals every month — always ad‑free.</p>
       </FadeIn>
